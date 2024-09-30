@@ -10,3 +10,4 @@ router.get('/status', AppController.getStatus); // Health check for Redis and DB
 router.get('/stats', AppController.getStats); // Get user and file statistics
 
 module.exports = router;
+
