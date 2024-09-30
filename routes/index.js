@@ -1,17 +1,33 @@
 import { Router } from 'express';
-// Import necessary controllers
 import AppController from '../controllers/AppController';
-// Import UsersController
-import UsersController from '../controllers/UsersController.js';
+import UsersController from '../controllers/UsersController';
+import AuthController from '../controllers/AuthController';
+import FilesController from '../controllers/FilesController';
 
-// Define API routes
 const router = Router();
 
-router.get('/status', AppController.getStatus); // Health check for Redis and DB
+router.get('/status', AppController.getStatus);
 
-router.get('/stats', AppController.getStats); // Get user and file statistics
+router.get('/stats', AppController.getStats);
 
-router.post('/users', UsersController.postNew); // Create a new user
+router.post('/users', UsersController.postNew);
 
-export default router; // Export the router
+router.get('/connect', AuthController.getConnect);
 
+router.get('/disconnect', AuthController.getDisconnect);
+
+router.get('/users/me', UsersController.getMe);
+
+router.post('/files', FilesController.postUpload);
+
+router.get('/files/:id', FilesController.getShow);
+
+router.get('/files', FilesController.getIndex);
+
+router.put('/files/:id/publish', FilesController.putPublish);
+
+router.put('/files/:id/unpublish', FilesController.putUnpublish);
+
+router.get('/files/:id/data', FilesController.getFile);
+
+module.exports = router;
