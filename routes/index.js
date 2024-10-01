@@ -24,5 +24,13 @@ router.put('/files/:id/publish', FilesController.putPublish); // Set isPublic to
 
     // Endpoint to unpublish a file, making it private
 router.put('/files/:id/unpublish', FilesController.putUnpublish); // Set isPublic to false for the specified file
+    // Endpoint to retrieve a file by ID
+router.get('/files/:id', FilesController.getShow); // Get details of a specific file
+
+// Endpoint to retrieve all files for the authenticated user
+router.get('/files', FilesController.getIndex); // Get a list of all files belonging to the authenticated user
+
+// Endpoint to retrieve file data
+router .get('/files/:id/data', FilesController.getFile); // Get the data for a specific file by ID
 
 export default router; // Export the router
