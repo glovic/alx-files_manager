@@ -6,6 +6,8 @@ import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController.js';
 // Import AuthController
 import AuthController from '../controllers/AuthController.js';
+// Import FilesController
+import FilesController from '../controllers/FilesController.js';
 
 // Define API routes
 const router = Router();
@@ -16,5 +18,6 @@ router.post('/users', UsersController.postNew); // Create a new user
 router.get('/connect', AuthController.getConnect); // User login
 router.get('/disconnect', AuthController.getDisconnect); // User logout
 router.get('/users/me', UsersController.getMe); // Retrieve current user information
+router.post('/files', FilesController.postUpload); // Upload a new file
 
 export default router; // Export the router
