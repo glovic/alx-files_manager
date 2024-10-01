@@ -16,7 +16,6 @@ class RedisClient {
       console.log('Redis client connected to server');
     });
   }
-  }
 
   // check connection status and report
   isAlive() {
