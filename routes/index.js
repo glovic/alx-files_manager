@@ -19,5 +19,10 @@ router.get('/connect', AuthController.getConnect); // User login
 router.get('/disconnect', AuthController.getDisconnect); // User logout
 router.get('/users/me', UsersController.getMe); // Retrieve current user information
 router.post('/files', FilesController.postUpload); // Upload a new file
+// Endpoint to publish a file, making it public
+router.put('/files/:id/publish', FilesController.putPublish); // Set isPublic to true for the specified file
+
+    // Endpoint to unpublish a file, making it private
+router.put('/files/:id/unpublish', FilesController.putUnpublish); // Set isPublic to false for the specified file
 
 export default router; // Export the router
