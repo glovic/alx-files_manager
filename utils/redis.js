@@ -10,11 +10,6 @@ class RedisClient {
     this.client.on('error', (error) => {
       console.log(`Redis client not connected to server: ${error}`);
     });
-    
-       // Confirm when Redis connects
-    this.client.on('connect', () => {
-      console.log('Redis client connected to server');
-    });
   }
 
   // check connection status and report
