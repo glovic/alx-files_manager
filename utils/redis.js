@@ -5,8 +5,6 @@ import { promisify } from 'util';
 class RedisClient {
   constructor() {
     this.client = createClient();
-
-	 // Log connection errors
     this.client.on('error', (error) => {
       console.log(`Redis client not connected to server: ${error}`);
     });
